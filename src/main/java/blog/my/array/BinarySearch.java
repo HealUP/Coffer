@@ -1,12 +1,21 @@
 package blog.my.array;
 
+import org.junit.Test;
+
 /**
- * @author dzh
+* Description: 二分查找
+* date: 2023/7/20 11:06
+ *
+* @author: Deng
+* @since JDK 1.8
+*/
+
+
+/**
+ * 前提条件：数组有序，没有重复元素（否则不止一个目标值）
  */
-
-
 public class BinarySearch {
-    public int binarySearch(int[] nums, int target) {
+    public  int binarySearch(int[] nums, int target) {
         // 在区间[left,right]中查找元素，左闭右闭
         int left = 0;
         int right = nums.length - 1;
@@ -16,7 +25,6 @@ public class BinarySearch {
         while (left <= right) {
             // 计算中间点
             int mid = left + (right - left) / 2;
-
             // 如果target == nums[mid]则表示已经找到，返回mid
             if (target == nums[mid]) {
                 return mid;
@@ -38,5 +46,12 @@ public class BinarySearch {
 
         // 未找到返回-1
         return -1;
+    }
+
+    public static void main(String[] args) {
+        BinarySearch binarySearch = new BinarySearch();
+        int[] a = new int[]{4, 7, 23, 45, 67, 68, 200};
+        int i = binarySearch.binarySearch(a, 200);
+        System.out.println(i);
     }
 }
