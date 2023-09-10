@@ -1,6 +1,5 @@
 package blog.my.array;
 
-import org.junit.Test;
 
 /**
 * Description: 二分查找
@@ -13,9 +12,10 @@ import org.junit.Test;
 
 /**
  * 前提条件：数组有序，没有重复元素（否则不止一个目标值）
+ * @author dengzh
  */
 public class BinarySearch {
-    public  int binarySearch(int[] nums, int target) {
+    public int binarySearch(int[] nums, int target) {
         // 在区间[left,right]中查找元素，左闭右闭
         int left = 0;
         int right = nums.length - 1;
@@ -43,15 +43,16 @@ public class BinarySearch {
                 left = mid + 1;
             }
         }
-
         // 未找到返回-1
         return -1;
     }
-
     public static void main(String[] args) {
+        long l = System.currentTimeMillis();
         BinarySearch binarySearch = new BinarySearch();
         int[] a = new int[]{4, 7, 23, 45, 67, 68, 200};
-        int i = binarySearch.binarySearch(a, 200);
+        int i = binarySearch.binarySearch(a, 23);
+        long l1 = System.currentTimeMillis();
         System.out.println(i);
+        System.out.println(l1 - l + "ms");
     }
 }
